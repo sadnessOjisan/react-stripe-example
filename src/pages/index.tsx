@@ -16,7 +16,7 @@ const Payment = () => {
 
   return (
     <div style={{ padding: 24 }}>
-      <h1>sadnessOjisan に年収を払ってくれる御社を探してます！</h1>
+      <h1>sadnessOjisan に給料を払ってくれる御社を探してます！</h1>
       <p>お金欲しい！！！！！！！！！！</p>
       <div style={{ maxWidth: 760 }}>
         <Elements stripe={stripePromise}>
@@ -98,22 +98,6 @@ const CheckoutForm = () => {
         {/* A flexible single-line input that collects all necessary card details. */}
         <CardElement
           options={{
-            style: {
-              base: {
-                padding: 10,
-                backgroundColor: "rgb(250, 255, 189)",
-                fontSize: "16px",
-                color: "#424770",
-                fontFamily: "Open Sans, sans-serif",
-                letterSpacing: "0.025em",
-                "::placeholder": {
-                  color: "#aab7c4",
-                },
-              },
-              invalid: {
-                color: "#c23d4b",
-              },
-            },
             hidePostalCode: true,
           }}
         />
@@ -122,27 +106,10 @@ const CheckoutForm = () => {
       <p>↓テスト用クレジットカード情報↓</p>
       <ul>
         <li>番号: 4111111111111111</li>
-        <li>有効期限: 02/25 (現在より後ならいつでmお)</li>
+        <li>有効期限: 02/25 (現在より後ならいつでもok)</li>
         <li>CVC: 111 (3桁ならなんでも)</li>
       </ul>
-      <button
-        type="submit"
-        disabled={!stripe}
-        style={{
-          marginTop: 10,
-          marginBottom: 10,
-          display: "block",
-          width: "100%",
-          height: "37px",
-          backgroundColor: "#6772e5",
-          borderRadius: "2px",
-          fontWeight: 600,
-          color: "#fff",
-          cursor: "pointer",
-
-          border: "none",
-        }}
-      >
+      <button type="submit" disabled={!stripe}>
         支払う
       </button>
     </form>
