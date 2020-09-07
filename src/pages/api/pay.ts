@@ -4,8 +4,6 @@ import Stripe from 'stripe'
 const stripe = new Stripe(process.env.STRIPE_SECRET, { apiVersion: '2020-08-27' })
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-    console.log('req.body', req.body)
-    console.log('req.body.amount', req.body.amount)
     const value = req.body.amount
     const paymentIntent = await stripe.paymentIntents.create({
         amount: value,

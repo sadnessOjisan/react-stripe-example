@@ -2,7 +2,6 @@ import * as React from 'react'
 // Stripe Elements is a set of prebuilt UI components, like inputs and buttons, for building your checkout flow.
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import { NONAME } from 'dns';
 
 const Payment = () => {
     // public key
@@ -101,12 +100,15 @@ const CheckoutForm = () => {
                             color: '#c23d4b',
                         },
                     }, hidePostalCode: true
-                }} /><p>↓テスト用クレジットカード情報↓</p>
-                <ul>
-                    <li>番号: 4111111111111111</li>
-                    <li>有効期限: 02/25 (現在より後ならいつでmお)</li>
-                    <li>CVC: 111 (3桁ならなんでも)</li>
-                </ul></label>
+                }} />
+            </label>
+            {/* labelの中に入れるとコピーしづらいw */}
+            <p>↓テスト用クレジットカード情報↓</p>
+            <ul>
+                <li>番号: 4111111111111111</li>
+                <li>有効期限: 02/25 (現在より後ならいつでmお)</li>
+                <li>CVC: 111 (3桁ならなんでも)</li>
+            </ul>
             <button type="submit" disabled={!stripe} style={{
                 marginTop: 10, marginBottom: 10,
                 display: 'block',
