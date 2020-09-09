@@ -1,4 +1,5 @@
 import * as React from "react";
+import Head from 'next/head';
 // Stripe Elements is a set of prebuilt UI components, like inputs and buttons, for building your checkout flow.
 import {
     Elements,
@@ -15,15 +16,21 @@ const Payment = () => {
     const stripePromise = loadStripe(stripeApiKey);
 
     return (
-        <div style={{ padding: 24 }}>
-            <h1>sadnessOjisan に給料を払うなら何円！？</h1>
-            <p>給料たくさん払って僕を喜ばせて欲しい！！！！！！！！！</p>
-            <div style={{ maxWidth: 760 }}>
-                <Elements stripe={stripePromise}>
-                    <CheckoutForm></CheckoutForm>
-                </Elements>
+        <>
+            <Head>
+                <title>sadnessOjisan に給料を払うなら何円！？</title>
+                <meta property="og:title" content="sadnessOjisan に給料を払うなら何円！？" key="title" />
+            </Head>
+            <div style={{ padding: 24 }}>
+                <h1>sadnessOjisan に給料を払うなら何円！？</h1>
+                <p>給料たくさん払って僕を喜ばせて欲しい！！！！！！！！！</p>
+                <div style={{ maxWidth: 760 }}>
+                    <Elements stripe={stripePromise}>
+                        <CheckoutForm></CheckoutForm>
+                    </Elements>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
